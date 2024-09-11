@@ -29,6 +29,7 @@ Partial Class MainUI
         Me.BtnCopy = New System.Windows.Forms.Button()
         Me.LblVersion = New System.Windows.Forms.Label()
         Me.OfdCfg = New System.Windows.Forms.OpenFileDialog()
+        Me.BtnIndiv = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'TxtMain
@@ -68,10 +69,10 @@ Partial Class MainUI
         '
         'BtnCopy
         '
-        Me.BtnCopy.BackColor = System.Drawing.Color.DeepPink
+        Me.BtnCopy.BackColor = System.Drawing.Color.MediumPurple
         Me.BtnCopy.Font = New System.Drawing.Font("微软雅黑", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.BtnCopy.ForeColor = System.Drawing.Color.White
-        Me.BtnCopy.Location = New System.Drawing.Point(662, 8)
+        Me.BtnCopy.Location = New System.Drawing.Point(547, 8)
         Me.BtnCopy.Name = "BtnCopy"
         Me.BtnCopy.Size = New System.Drawing.Size(110, 32)
         Me.BtnCopy.TabIndex = 501
@@ -81,25 +82,38 @@ Partial Class MainUI
         'LblVersion
         '
         Me.LblVersion.Font = New System.Drawing.Font("微软雅黑", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.LblVersion.ForeColor = System.Drawing.Color.Ivory
+        Me.LblVersion.ForeColor = System.Drawing.Color.LightCyan
         Me.LblVersion.Location = New System.Drawing.Point(244, 9)
         Me.LblVersion.Name = "LblVersion"
-        Me.LblVersion.Size = New System.Drawing.Size(412, 31)
-        Me.LblVersion.TabIndex = 301
-        Me.LblVersion.Text = "ZTE Patrina 版本: 1.0.0 (1970/01)"
-        Me.LblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.LblVersion.Size = New System.Drawing.Size(297, 31)
+        Me.LblVersion.TabIndex = 200
+        Me.LblVersion.Text = "ZTE Patrina 版本: 1.0.0 (2020.01)"
+        Me.LblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'OfdCfg
         '
         Me.OfdCfg.Filter = "所有文件|*.*"
+        '
+        'BtnIndiv
+        '
+        Me.BtnIndiv.BackColor = System.Drawing.Color.PaleVioletRed
+        Me.BtnIndiv.Font = New System.Drawing.Font("微软雅黑", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.BtnIndiv.ForeColor = System.Drawing.Color.White
+        Me.BtnIndiv.Location = New System.Drawing.Point(662, 8)
+        Me.BtnIndiv.Name = "BtnIndiv"
+        Me.BtnIndiv.Size = New System.Drawing.Size(110, 32)
+        Me.BtnIndiv.TabIndex = 211
+        Me.BtnIndiv.Text = "密钥 (&K)"
+        Me.BtnIndiv.UseVisualStyleBackColor = False
         '
         'MainUI
         '
         Me.AllowDrop = True
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.BackColor = System.Drawing.Color.HotPink
+        Me.BackColor = System.Drawing.Color.DeepPink
         Me.ClientSize = New System.Drawing.Size(784, 561)
+        Me.Controls.Add(Me.BtnIndiv)
         Me.Controls.Add(Me.LblVersion)
         Me.Controls.Add(Me.BtnCopy)
         Me.Controls.Add(Me.BtnSave)
@@ -123,4 +137,5 @@ Partial Class MainUI
     Friend WithEvents BtnCopy As Button
     Friend WithEvents LblVersion As Label
     Friend WithEvents OfdCfg As OpenFileDialog
+    Friend WithEvents BtnIndiv As Button
 End Class
