@@ -7,11 +7,11 @@
 
 # 软件功能
 
-支持Deflate解压缩中兴(ZTE)光终端XML、CFG格式配置文件。
+- 支持Deflate解压缩中兴(ZTE)光终端XML、CFG格式配置文件。
 
-支持使用默认AES密钥解密中兴(ZTE)光终端XML、CFG格式配置文件。
+- 支持使用默认AES密钥解密中兴(ZTE)光终端XML、CFG格式配置文件。
 
-支持使用Indiv密钥(一机一密)解密中兴(ZTE)光终端XML、CFG格式配置文件。
+- 支持使用Indiv密钥(一机一密)解密中兴(ZTE)光终端XML、CFG格式配置文件。
 
 
 # 系统要求
