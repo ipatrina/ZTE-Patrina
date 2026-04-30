@@ -1,6 +1,5 @@
 ﻿Imports System.IO
 Imports System.IO.Compression
-Imports System.Management
 Imports System.Runtime.InteropServices
 Imports System.Security.Cryptography
 Imports System.Text
@@ -28,14 +27,13 @@ Public Class MainUI
             If m.WParam.ToInt32 = &H1FFE Then
                 YouhuaPasswordTool.ShowDialog()
             ElseIf m.WParam.ToInt32 = &H1FFF Then
-                MsgBox("ZTE Patrina" & vbCrLf & vbCrLf & "中兴ONT配置文件实用工具" & vbCrLf & vbCrLf & "软件版本：" & VersionStrings(0) & "." & VersionStrings(1) & "." & VersionStrings(2) & vbCrLf & "更新时间：20" & VersionStrings(3).Substring(0, 2) & "年" & Int(VersionStrings(3).Substring(2, 2)) & "月" & vbCrLf & vbCrLf & "Copyright © 2020-2024 版权所有", vbInformation, "关于")
+                MsgBox("ZTE Patrina" & vbCrLf & vbCrLf & "中兴ONT配置文件实用工具" & vbCrLf & vbCrLf & "软件版本：" & VersionStrings(0) & "." & VersionStrings(1) & "." & VersionStrings(2) & vbCrLf & "更新时间：20" & VersionStrings(3).Substring(0, 2) & "年" & Int(VersionStrings(3).Substring(2, 2)) & "月" & vbCrLf & vbCrLf & "Copyright © 2020-2026 版权所有", vbInformation, "关于")
             End If
         End If
         MyBase.WndProc(m)
     End Sub
 
     Public Shared IndivKey As String = ""
-    Public Shared MachineID As Byte() = New Byte() {}
     Public Shared SaveBuffer As Byte() = New Byte() {}
     Public Shared SavePath As String = ""
     Public Shared VersionStrings As String() = Application.ProductVersion.ToString.Split(".")
@@ -192,27 +190,6 @@ Public Class MainUI
         End Try
     End Function
 
-    Public Function GetMachineID() As String
-        Try
-            Dim _loc_1 As New StringBuilder()
-            For Each _loc_2 As ManagementObject In New ManagementObjectSearcher("SELECT * FROM Win32_BIOS").Get()
-                Dim _loc_3 As String = Convert.ToString(_loc_2("Manufacturer"))
-                Dim _loc_4 As String = Convert.ToString(_loc_2("SerialNumber"))
-                If _loc_3.Length > 1 And _loc_4.Length > 1 Then
-                    _loc_1.Append(_loc_3)
-                    _loc_1.Append(vbLf)
-                    _loc_1.Append(_loc_4)
-                    Return _loc_1.ToString()
-                Else
-                    Return ""
-                End If
-            Next
-            Return ""
-        Catch ex As Exception
-            Return ""
-        End Try
-    End Function
-
     Private Sub LoadConfig(Input As String)
         Try
             If My.Computer.FileSystem.FileExists(Input) Then
@@ -234,8 +211,8 @@ Public Class MainUI
                             Dim DecryptAESIV As String = "667b02a85c61c786def4521b060265e8"
                             If IndivKey.Length > 0 Then
                                 Dim _loc_1 As Byte() = New Byte(32) {}
-                                Dim _loc_2 As Byte() = Encoding.UTF8.GetBytes(IndivKey)
-                                Array.Copy(_loc_2, 0, _loc_1, 0, IndivKey.Length)
+                                Dim _loc_2 As Byte() = Encoding.UTF8.GetBytes(IndivKey.Replace("\0", Chr(0)))
+                                Array.Copy(_loc_2, 0, _loc_1, 0, _loc_2.Length)
                                 DecryptAESKey = BytesToHex(New System.Security.Cryptography.MD5CryptoServiceProvider().ComputeHash(_loc_1)).ToLower()
                             End If
                             InputBuffer = DecryptAES(DataBuffer, GetAESCBCEncryKey(DecryptAESKey, 31), GetAESCBCEncryIV(DecryptAESIV, 31))

@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("")>
-<Assembly: AssemblyCopyright("Copyright ©  2020-2024")>
+<Assembly: AssemblyCopyright("Copyright ©  2020-2026")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 '通过使用 "*"，如下所示:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("4.0.1.2409")>
-<Assembly: AssemblyFileVersion("4.0.1.2409")>
+<Assembly: AssemblyVersion("4.1.0.2604")>
+<Assembly: AssemblyFileVersion("4.1.0.2604")>
